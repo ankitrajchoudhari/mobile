@@ -14,10 +14,13 @@ const _prodUrl = 'https://api.mobile.freecodecamp.org';
 const _devUrl = 'https://api.mobile.freecodecamp.dev';
 
 @riverpod
-PodcastApiRepository podcastApiRepository(Ref ref) => PodcastApiRepository();
+PodcastApiRepository podcastApiRepository(Ref ref) =>
+    PodcastApiRepository(ref.watch(dioProvider));
 
 class PodcastApiRepository {
-  final Dio _dio = DioService.dio;
+  PodcastApiRepository(this._dio);
+
+  final Dio _dio;
 
   String get _baseUrl =>
       dotenv.getBool('DEVELOPMENT_MODE', fallback: false) ? _devUrl : _prodUrl;

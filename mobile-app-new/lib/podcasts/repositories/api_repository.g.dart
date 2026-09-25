@@ -55,4 +55,4 @@ final class PodcastApiRepositoryProvider
 }
 
 String _$podcastApiRepositoryHash() =>
-    r'7ccb4cf53f8bcdf719d87a236334120d5405afa9';
+    r'51754e685b2b3785c13cf95ce173845a660ff6bc';

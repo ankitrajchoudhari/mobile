@@ -7,12 +7,10 @@ import 'package:mobile_app_new/fcc_theme.dart';
 import 'package:mobile_app_new/podcasts/services/library_service.dart';
 import 'package:mobile_app_new/routing/router.dart';
 import 'package:mobile_app_new/services/audio_service.dart';
-import 'package:mobile_app_new/services/dio_service.dart';
 import 'package:mobile_app_new/services/notification_service.dart';
 
 Future<void> main() async {
   await dotenv.load();
-  await DioService().init();
 
   final audioHandler = await initAudioService();
 

@@ -55,4 +55,4 @@ final class PodcastDownloadRepositoryProvider
 }
 
 String _$podcastDownloadRepositoryHash() =>
-    r'15405ac28c4d7d71680f781d534431e409120a6b';
+    r'193b2f76ef7fed2fd55ec1ad0f8801b94f189373';

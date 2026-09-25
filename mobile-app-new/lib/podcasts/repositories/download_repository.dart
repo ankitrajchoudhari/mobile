@@ -23,10 +23,12 @@ const _artworkDirName = 'podcast';
 
 @riverpod
 PodcastDownloadRepository podcastDownloadRepository(Ref ref) =>
-    PodcastDownloadRepository();
+    PodcastDownloadRepository(ref.watch(dioProvider));
 
 class PodcastDownloadRepository {
-  final Dio _dio = DioService.dio;
+  PodcastDownloadRepository(this._dio);
+
+  final Dio _dio;
 
   Directory? _documents;
 

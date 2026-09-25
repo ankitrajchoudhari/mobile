@@ -1,23 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class DioService {
-  static final DioService _dioService = DioService._internal();
+part 'dio_service.g.dart';
 
-  static final Dio dio = Dio();
+@Riverpod(keepAlive: true)
+Dio dio(Ref ref) {
+  final dio = Dio();
 
-  factory DioService() {
-    return _dioService;
+  if (dotenv.getBool('DEVELOPMENT_MODE', fallback: false)) {
+    dio.interceptors.add(PrettyDioLogger(responseBody: false));
   }
 
-  Future<void> init() async {
-    bool isDevMode = dotenv.getBool('DEVELOPMENT_MODE', fallback: false);
+  ref.onDispose(dio.close);
 
-    if (isDevMode) {
-      dio.interceptors.add(PrettyDioLogger(responseBody: false));
-    }
-  }
-
-  DioService._internal();
+  return dio;
 }
