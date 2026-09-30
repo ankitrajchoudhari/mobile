@@ -246,7 +246,10 @@ class _Controls extends ConsumerWidget {
         const SizedBox(width: 8),
         IconButton(
           iconSize: 45,
-          icon: const Icon(Icons.replay_10_rounded),
+          icon: const Icon(
+            Icons.replay_10_rounded,
+            semanticLabel: 'Rewind 10 seconds',
+          ),
           onPressed: () => ref.read(podcastPlayerProvider.notifier).rewind(),
         ),
         IconButton(
@@ -264,11 +267,19 @@ class _Controls extends ConsumerWidget {
                     ),
                   ),
                 )
-              : Icon(status.isPlaying ? Icons.pause : Icons.play_arrow_rounded),
+              : Icon(
+                  status.isPlaying ? Icons.pause : Icons.play_arrow_rounded,
+                  semanticLabel: status.isPlaying
+                      ? 'Pause episode'
+                      : 'Play episode',
+                ),
         ),
         IconButton(
           iconSize: 45,
-          icon: const Icon(Icons.forward_30_rounded),
+          icon: const Icon(
+            Icons.forward_30_rounded,
+            semanticLabel: 'Fast forward 30 seconds',
+          ),
           onPressed: () =>
               ref.read(podcastPlayerProvider.notifier).fastForward(),
         ),
