@@ -121,6 +121,9 @@ class ChapterView extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     chapter.name,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -226,6 +229,9 @@ class ChapterView extends StatelessWidget {
                 children: [
                   Text(
                     module.name,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
                     style: TextStyle(
                       fontSize: 21,
                       fontWeight: FontWeight.bold,
